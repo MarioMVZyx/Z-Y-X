@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Z Y X - Smart Inventory Intelligence">
+  <title>Z Y X | Smart Inventory Intelligence</title>
+  <link rel="icon" href="./assets/images/zyx-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview" aria-label="Ir al inicio">
+      <span class="brand-mark">Z</span>
+      <span class="brand-name">Z Y X</span>
+    </a>
+
+    <nav class="side-nav" aria-label="Navegacion principal">
+      <a class="nav-link active" href="#overview" data-section="overview">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z"/></svg></span>
+        <span>Resumen</span>
+      </a>
+      <a class="nav-link" href="#analytics" data-section="analytics">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M5 20V10m5 10V4m5 16v-7m5 7V7"/></svg></span>
+        <span>Analitica</span>
+      </a>
+      <a class="nav-link" href="#inventory" data-section="inventory">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4Zm0 0v10l8 4 8-4V7m-8 4v10"/></svg></span>
+        <span>Inventario</span>
+      </a>
+      <a class="nav-link" href="#forecast" data-section="forecast">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 3 7-8m-4 0h4v4"/></svg></span>
+        <span>Pronostico</span>
+      </a>
+      <a class="nav-link" href="#decisions" data-section="decisions">
+        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-4 12.74V19h8v-3.26A7 7 0 0 0 12 3Zm-4 19h8"/></svg></span>
+        <span>Decisiones</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="profile" type="button" aria-label="Abrir perfil">
+        <span class="avatar">MM</span>
+        <span class="profile-copy">
+          <strong>Mario Mora</strong>
+          <small>Estudiante</small>
+        </span>
+        <span class="profile-more">•••</span>
+      </button>
+    </div>
+  </aside>
+
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <main class="main-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">SMART INVENTORY INTELLIGENCE</p>
+        <h1 id="pageTitle">Panel general</h1>
+      </div>
+      <div class="top-actions">
+        <label class="search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+          <input type="search" id="searchInput" placeholder="Buscar SKU o producto">
+        </label>
+        <button class="icon-button" type="button" id="themeButton" aria-label="Cambiar tema">
+          <svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42M7.06 18.36l-1.42 1.42"/><circle cx="12" cy="12" r="4"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="content">
+      <section id="overview" class="section active-section">
+        <div class="hero-grid">
+          <article class="insight-card hero-card tilt-card">
+            <div class="card-orb"></div>
+            <div class="hero-copy">
+              <span class="status-pill"><i></i> Sistema operativo</span>
+              <h2>Inventario inteligente,<br><em>decisiones precisas.</em></h2>
+              <p>Monitorea, predice y optimiza tus operaciones desde una sola vista ejecutiva.</p>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+              <div class="cube-stage">
+                <div class="cube">
+                  <div class="cube-face cube-front"></div>
+                  <div class="cube-face cube-back"></div>
+                  <div class="cube-face cube-right"></div>
+                  <div class="cube-face cube-left"></div>
+                  <div class="cube-face cube-top"></div>
+                  <div class="cube-face cube-bottom"></div>
+                </div>
+              </div>
+              <div class="scan-line"></div>
+            </div>
+          </article>
+
+          <article class="insight-card score-card tilt-card">
+            <div class="card-heading">
+              <div>
+                <span class="label">Indice ZYX</span>
+                <h3>Rendimiento</h3>
+              </div>
+              <button class="dots" type="button" aria-label="Mas opciones">•••</button>
+            </div>
+            <div class="score-ring" style="--score: 87">
+              <div class="score-ring-inner">
+                <strong>87</strong>
+                <span>/100</span>
+              </div>
+            </div>
+            <div class="score-meta">
+              <span><i class="dot green"></i>Optimo</span>
+              <strong>+4.8%</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="metric-grid">
+          <article class="insight-card metric-card">
+            <div class="metric-icon purple"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4Zm0 0v10l8 4 8-4V7m-8 4v10"/></svg></div>
+            <div class="metric-copy"><span>Valor de inventario</span><strong>$284,650</strong></div>
+            <div class="trend positive">↗ 8.2%</div>
+          </article>
+          <article class="insight-card metric-card">
+            <div class="metric-icon cyan"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8v8H8z"/></svg></div>
+            <div class="metric-copy"><span>SKU activos</span><strong>1,248</strong></div>
+            <div class="trend positive">↗ 3.1%</div>
+          </article>
+          <article class="insight-card metric-card">
+            <div class="metric-icon orange"><svg viewBox="0 0 24 24"><path d="M12 3l8 5v8l-8 5-8-5V8l8-5Zm0 5v8m-5-7 10 6m0-6L7 15"/></svg></div>
+            <div class="metric-copy"><span>Rotacion mensual</span><strong>6.4x</strong></div>
+            <div class="trend positive">↗ 12.6%</div>
+          </article>
+          <article class="insight-card metric-card">
+            <div class="metric-icon pink"><svg viewBox="0 0 24 24"><path d="M12 8v5l3 2M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"/></svg></div>
+            <div class="metric-copy"><span>Exceso de inventario</span><strong>$18,240</strong></div>
+            <div class="trend negative">↘ 5.4%</div>
+          </article>
+        </div>
+
+        <div class="analytics-grid">
+          <article class="insight-card chart-card">
+            <div class="card-heading">
+              <div><span class="label">FLUJO FINANCIERO</span><h3>Movimiento de inventario</h3></div>
+              <select class="period-select" id="periodSelect" aria-label="Periodo">
+                <option value="month">Mensual</option>
+                <option value="quarter">Trimestral</option>
+              </select>
+            </div>
+            <div class="chart-wrap"><canvas id="inventoryChart"></canvas></div>
+          </article>
+
+          <article class="insight-card categories-card">
+            <div class="card-heading">
+              <div><span class="label">DISTRIBUCION</span><h3>Por categoria</h3></div>
+            </div>
+            <div class="donut-layout">
+              <div class="donut-wrap"><canvas id="categoryChart"></canvas><div class="donut-center"><strong>1,248</strong><span>SKU</span></div></div>
+              <div class="legend" id="categoryLegend"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="analytics" class="section">
+        <div class="section-heading"><div><span class="label">INTELIGENCIA OPERATIVA</span><h2>Analitica financiera</h2></div></div>
+        <div class="analytics-grid">
+          <article class="insight-card chart-card wide">
+            <div class="card-heading"><div><span class="label">ABASTECIMIENTO</span><h3>Costo vs. demanda</h3></div></div>
+            <div class="chart-wrap tall"><canvas id="financeChart"></canvas></div>
+          </article>
+          <article class="insight-card kpi-card">
+            <span class="label">MARGEN PROMEDIO</span>
+            <strong class="big-kpi">31.8%</strong>
+            <div class="kpi-bars"><i style="width:84%"></i><i style="width:62%"></i><i style="width:71%"></i><i style="width:93%"></i></div>
+            <p>Margen saludable respecto al objetivo mensual de 30%.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="inventory" class="section">
+        <div class="section-heading"><div><span class="label">CONTROL DE STOCK</span><h2>Inventario activo</h2></div><button class="primary-button" type="button" id="exportButton">Exportar reporte</button></div>
+        <article class="insight-card table-card">
+          <div class="table-toolbar">
+            <span><b id="visibleCount">6</b> productos destacados</span>
+            <div class="table-filter" id="stockFilters">
+              <button class="active" type="button" data-filter="all">Todos</button>
+              <button type="button" data-filter="healthy">Saludable</button>
+              <button type="button" data-filter="low">Stock bajo</button>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Producto</th><th>SKU</th><th>Stock</th><th>Estado</th><th>Valor</th></tr></thead>
+              <tbody id="inventoryTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="forecast" class="section">
+        <div class="section-heading"><div><span class="label">MODELO PREDICTIVO</span><h2>Pronostico de demanda</h2></div></div>
+        <div class="forecast-grid">
+          <article class="insight-card forecast-card">
+            <div class="forecast-value"><span>Demanda estimada</span><strong>18,420</strong><small>unidades / 30 dias</small></div>
+            <div class="forecast-bar"><i style="width:74%"></i></div>
+            <div class="forecast-meta"><span>Confianza del modelo</span><strong>94%</strong></div>
+          </article>
+          <article class="insight-card alert-card">
+            <span class="alert-badge">Accion recomendada</span>
+            <h3>Reabastecer 4 productos</h3>
+            <p>Se anticipa una ruptura de stock en los proximos 12 dias.</p>
+            <button type="button" class="text-button" id="reviewButton">Revisar inventario →</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="decisions" class="section">
+        <div class="section-heading"><div><span class="label">CENTRO DE DECISION</span><h2>Recomendaciones Z Y X</h2></div></div>
+        <div class="decision-layout">
+          <article class="insight-card audio-card">
+            <div class="audio-art">
+              <div class="pulse-ring"></div>
+              <div class="audio-monogram">ZYX</div>
+            </div>
+            <div class="audio-copy">
+              <span class="label">REPORTE DE AUDIO</span>
+              <h3>Decision inteligente</h3>
+              <p>Escucha el resumen ejecutivo generado por Z Y X.</p>
+            </div>
+            <audio id="decisionAudio" preload="metadata" src="./assets/decision.mp3"></audio>
+            <div class="player">
+              <button type="button" id="playButton" class="play-button" aria-label="Reproducir">
+                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg class="pause-icon" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+              </button>
+              <span class="time" id="currentTime">0:00</span>
+              <input type="range" id="progress" min="0" max="100" value="0" aria-label="Progreso del audio">
+              <span class="time" id="duration">0:00</span>
+            </div>
+          </article>
+          <article class="insight-card profile-card">
+            <span class="label">PROYECTO ACADÉMICO</span>
+            <h3>Z Y X</h3>
+            <p><strong>Estudiante:</strong> Mario Mora Valdez</p>
+            <p><strong>Periodo:</strong> 7mo cuatrimestre</p>
+            <div class="tech-pills"><span>Inteligencia</span><span>Inventario</span><span>Datos</span></div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./assets/chart.umd.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
