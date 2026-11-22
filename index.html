@@ -3,261 +3,390 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090b10">
-  <meta name="description" content="Z Y X - Smart Inventory Intelligence">
-  <title>Z Y X | Smart Inventory Intelligence</title>
+  <meta name="theme-color" content="#080B10">
+  <meta name="description" content="Z Y X — Smart Inventory Intelligence. Evaluación financiera y tecnológica de un proyecto de inteligencia artificial para comercios mexicanos.">
+  <title>Z Y X | ¿Salvarías o cerrarías este proyecto?</title>
   <link rel="icon" href="./assets/images/zyx-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <aside class="sidebar" id="sidebar">
-    <a class="brand" href="#overview" aria-label="Ir al inicio">
-      <span class="brand-mark">Z</span>
-      <span class="brand-name">Z Y X</span>
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img src="./assets/images/zyx-mark.svg" alt="" class="brand-mark">
+      <span>
+        <strong>Z Y X</strong>
+        <small>SMART INVENTORY</small>
+      </span>
     </a>
 
-    <nav class="side-nav" aria-label="Navegacion principal">
-      <a class="nav-link active" href="#overview" data-section="overview">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z"/></svg></span>
-        <span>Resumen</span>
-      </a>
-      <a class="nav-link" href="#analytics" data-section="analytics">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M5 20V10m5 10V4m5 16v-7m5 7V7"/></svg></span>
-        <span>Analitica</span>
-      </a>
-      <a class="nav-link" href="#inventory" data-section="inventory">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4Zm0 0v10l8 4 8-4V7m-8 4v10"/></svg></span>
-        <span>Inventario</span>
-      </a>
-      <a class="nav-link" href="#forecast" data-section="forecast">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 3 7-8m-4 0h4v4"/></svg></span>
-        <span>Pronostico</span>
-      </a>
-      <a class="nav-link" href="#decisions" data-section="decisions">
-        <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-4 12.74V19h8v-3.26A7 7 0 0 0 12 3Zm-4 19h8"/></svg></span>
-        <span>Decisiones</span>
-      </a>
+    <nav class="side-nav" aria-label="Apartados de la presentación">
+      <a class="nav-link active" href="#inicio" data-target="inicio"><span>IN</span><b>Inicio</b></a>
+      <a class="nav-link" href="#finanzas" data-target="finanzas"><span>01</span><b>Finanzas</b></a>
+      <a class="nav-link" href="#tecnologia" data-target="tecnologia"><span>02</span><b>Tecnología</b></a>
+      <a class="nav-link" href="#humanos" data-target="humanos"><span>03</span><b>Capital humano</b></a>
+      <a class="nav-link" href="#riesgos" data-target="riesgos"><span>04</span><b>Riesgos</b></a>
+      <a class="nav-link" href="#decision" data-target="decision"><span>05</span><b>Decisión</b></a>
+      <a class="nav-link" href="#evidencias" data-target="evidencias"><span>06</span><b>Evidencias</b></a>
     </nav>
 
-    <div class="sidebar-footer">
-      <button class="profile" type="button" aria-label="Abrir perfil">
-        <span class="avatar">MM</span>
-        <span class="profile-copy">
-          <strong>Mario Mora</strong>
-          <small>Estudiante</small>
-        </span>
-        <span class="profile-more">•••</span>
-      </button>
+    <div class="student">
+      <span class="student-monogram">MM</span>
+      <span><strong>Mario Mora Valdez</strong><small>7mo cuatrimestre</small></span>
     </div>
   </aside>
 
-  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 
-  <main class="main-shell">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">SMART INVENTORY INTELLIGENCE</p>
-        <h1 id="pageTitle">Panel general</h1>
-      </div>
-      <div class="top-actions">
-        <label class="search">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
-          <input type="search" id="searchInput" placeholder="Buscar SKU o producto">
-        </label>
-        <button class="icon-button" type="button" id="themeButton" aria-label="Cambiar tema">
-          <svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42M7.06 18.36l-1.42 1.42"/><circle cx="12" cy="12" r="4"/></svg>
-        </button>
-      </div>
-    </header>
-
-    <div class="content">
-      <section id="overview" class="section active-section">
-        <div class="hero-grid">
-          <article class="insight-card hero-card tilt-card">
-            <div class="card-orb"></div>
-            <div class="hero-copy">
-              <span class="status-pill"><i></i> Sistema operativo</span>
-              <h2>Inventario inteligente,<br><em>decisiones precisas.</em></h2>
-              <p>Monitorea, predice y optimiza tus operaciones desde una sola vista ejecutiva.</p>
-            </div>
-            <div class="hero-visual" aria-hidden="true">
-              <div class="cube-stage">
-                <div class="cube">
-                  <div class="cube-face cube-front"></div>
-                  <div class="cube-face cube-back"></div>
-                  <div class="cube-face cube-right"></div>
-                  <div class="cube-face cube-left"></div>
-                  <div class="cube-face cube-top"></div>
-                  <div class="cube-face cube-bottom"></div>
-                </div>
-              </div>
-              <div class="scan-line"></div>
-            </div>
-          </article>
-
-          <article class="insight-card score-card tilt-card">
-            <div class="card-heading">
-              <div>
-                <span class="label">Indice ZYX</span>
-                <h3>Rendimiento</h3>
-              </div>
-              <button class="dots" type="button" aria-label="Mas opciones">•••</button>
-            </div>
-            <div class="score-ring" style="--score: 87">
-              <div class="score-ring-inner">
-                <strong>87</strong>
-                <span>/100</span>
-              </div>
-            </div>
-            <div class="score-meta">
-              <span><i class="dot green"></i>Optimo</span>
-              <strong>+4.8%</strong>
-            </div>
-          </article>
-        </div>
-
-        <div class="metric-grid">
-          <article class="insight-card metric-card">
-            <div class="metric-icon purple"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4Zm0 0v10l8 4 8-4V7m-8 4v10"/></svg></div>
-            <div class="metric-copy"><span>Valor de inventario</span><strong>$284,650</strong></div>
-            <div class="trend positive">↗ 8.2%</div>
-          </article>
-          <article class="insight-card metric-card">
-            <div class="metric-icon cyan"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8v8H8z"/></svg></div>
-            <div class="metric-copy"><span>SKU activos</span><strong>1,248</strong></div>
-            <div class="trend positive">↗ 3.1%</div>
-          </article>
-          <article class="insight-card metric-card">
-            <div class="metric-icon orange"><svg viewBox="0 0 24 24"><path d="M12 3l8 5v8l-8 5-8-5V8l8-5Zm0 5v8m-5-7 10 6m0-6L7 15"/></svg></div>
-            <div class="metric-copy"><span>Rotacion mensual</span><strong>6.4x</strong></div>
-            <div class="trend positive">↗ 12.6%</div>
-          </article>
-          <article class="insight-card metric-card">
-            <div class="metric-icon pink"><svg viewBox="0 0 24 24"><path d="M12 8v5l3 2M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"/></svg></div>
-            <div class="metric-copy"><span>Exceso de inventario</span><strong>$18,240</strong></div>
-            <div class="trend negative">↘ 5.4%</div>
-          </article>
-        </div>
-
-        <div class="analytics-grid">
-          <article class="insight-card chart-card">
-            <div class="card-heading">
-              <div><span class="label">FLUJO FINANCIERO</span><h3>Movimiento de inventario</h3></div>
-              <select class="period-select" id="periodSelect" aria-label="Periodo">
-                <option value="month">Mensual</option>
-                <option value="quarter">Trimestral</option>
-              </select>
-            </div>
-            <div class="chart-wrap"><canvas id="inventoryChart"></canvas></div>
-          </article>
-
-          <article class="insight-card categories-card">
-            <div class="card-heading">
-              <div><span class="label">DISTRIBUCION</span><h3>Por categoria</h3></div>
-            </div>
-            <div class="donut-layout">
-              <div class="donut-wrap"><canvas id="categoryChart"></canvas><div class="donut-center"><strong>1,248</strong><span>SKU</span></div></div>
-              <div class="legend" id="categoryLegend"></div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="analytics" class="section">
-        <div class="section-heading"><div><span class="label">INTELIGENCIA OPERATIVA</span><h2>Analitica financiera</h2></div></div>
-        <div class="analytics-grid">
-          <article class="insight-card chart-card wide">
-            <div class="card-heading"><div><span class="label">ABASTECIMIENTO</span><h3>Costo vs. demanda</h3></div></div>
-            <div class="chart-wrap tall"><canvas id="financeChart"></canvas></div>
-          </article>
-          <article class="insight-card kpi-card">
-            <span class="label">MARGEN PROMEDIO</span>
-            <strong class="big-kpi">31.8%</strong>
-            <div class="kpi-bars"><i style="width:84%"></i><i style="width:62%"></i><i style="width:71%"></i><i style="width:93%"></i></div>
-            <p>Margen saludable respecto al objetivo mensual de 30%.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="inventory" class="section">
-        <div class="section-heading"><div><span class="label">CONTROL DE STOCK</span><h2>Inventario activo</h2></div><button class="primary-button" type="button" id="exportButton">Exportar reporte</button></div>
-        <article class="insight-card table-card">
-          <div class="table-toolbar">
-            <span><b id="visibleCount">6</b> productos destacados</span>
-            <div class="table-filter" id="stockFilters">
-              <button class="active" type="button" data-filter="all">Todos</button>
-              <button type="button" data-filter="healthy">Saludable</button>
-              <button type="button" data-filter="low">Stock bajo</button>
-            </div>
+  <main class="presentation">
+    <section id="inicio" class="cover section-panel" data-section="inicio">
+      <div class="cover-grid">
+        <div class="cover-copy reveal">
+          <p class="kicker"><span></span>Z Y X · Caso ejecutivo</p>
+          <h1>¿SALVARÍAS O <em>CERRARÍAS</em><br>ESTE PROYECTO?</h1>
+          <p class="cover-lead">Una evaluación financiera y tecnológica para determinar el futuro de una empresa de inteligencia artificial.</p>
+          <div class="student-line">
+            <span>Mario Mora Valdez</span>
+            <i></i>
+            <span>7mo cuatrimestre</span>
+            <i></i>
+            <label>Grupo: <input id="groupInput" aria-label="Grupo" placeholder="________"></label>
           </div>
-          <div class="table-scroll">
-            <table>
-              <thead><tr><th>Producto</th><th>SKU</th><th>Stock</th><th>Estado</th><th>Valor</th></tr></thead>
-              <tbody id="inventoryTable"></tbody>
-            </table>
+          <a class="primary-cta" href="#finanzas">EXPLORAR EVALUACIÓN <span>↓</span></a>
+        </div>
+
+        <div class="cover-object reveal" aria-label="Objeto tecnológico Z Y X">
+          <div class="orbital orbital-a"></div>
+          <div class="orbital orbital-b"></div>
+          <div class="orbital orbital-c"></div>
+          <div class="core-3d">
+            <div class="core-layer core-back"></div>
+            <div class="core-layer core-mid"></div>
+            <div class="core-layer core-front"><b>ZYX</b></div>
+          </div>
+          <div class="data-node node-a"></div>
+          <div class="data-node node-b"></div>
+          <div class="data-node node-c"></div>
+        </div>
+      </div>
+
+      <div class="cover-data reveal">
+        <article><span>Inversión inicial</span><strong>$50,000</strong></article>
+        <article><span>Ingresos esperados</span><strong>$18,000<small>/ mes</small></strong></article>
+        <article><span>Gastos mensuales</span><strong>$12,000</strong></article>
+        <article><span>Suscripción por cliente</span><strong>$600</strong></article>
+        <article><span>Escenario comercial</span><strong>30 <small>esperados</small></strong></article>
+        <article><span>Clientes actuales</span><strong>15 <small>conseguidos</small></strong></article>
+      </div>
+    </section>
+
+    <section id="finanzas" class="section-panel finance-section" data-section="finanzas">
+      <header class="section-header reveal">
+        <div><span class="section-index">01</span><p>Análisis financiero</p></div>
+        <h2>¿Los números permiten<br>continuar operando?</h2>
+        <p class="section-summary">Comparamos los ingresos con los gastos en los dos escenarios conocidos y calculamos el nivel mínimo de clientes necesario.</p>
+      </header>
+
+      <div class="finance-layout">
+        <article class="scenario-card positive-card reveal tilt">
+          <div class="scenario-top"><span>ESCENARIO A</span><b>30 clientes</b></div>
+          <div class="scenario-flow">
+            <div><span>Ingreso mensual</span><strong>$18,000</strong></div>
+            <i>−</i>
+            <div><span>Gasto mensual</span><strong>$12,000</strong></div>
+            <i>=</i>
+            <div class="flow-result"><span>Flujo neto</span><strong>$6,000</strong></div>
+          </div>
+          <p class="formula">30 × $600 = <b>$18,000</b> / mes</p>
+        </article>
+
+        <article class="scenario-card negative-card reveal tilt">
+          <div class="scenario-top"><span>ESCENARIO B</span><b>15 clientes</b></div>
+          <div class="scenario-flow">
+            <div><span>Ingreso mensual</span><strong>$9,000</strong></div>
+            <i>−</i>
+            <div><span>Gasto mensual</span><strong>$12,000</strong></div>
+            <i>=</i>
+            <div class="flow-result"><span>Flujo neto</span><strong>−$3,000</strong></div>
+          </div>
+          <p class="formula">15 × $600 = <b>$9,000</b> / mes</p>
+        </article>
+      </div>
+
+      <div class="break-even reveal">
+        <div class="break-even-copy">
+          <span class="micro-label">Punto de equilibrio</span>
+          <h3>$12,000 ÷ $600 = <strong>20 clientes</strong></h3>
+          <p>Con 20 clientes se cubren los gastos operativos mensuales. A partir de esa cifra comienza a existir flujo neto positivo.</p>
+        </div>
+        <div class="threshold-visual" aria-label="Gráfica de punto de equilibrio">
+          <div class="threshold-line"><i style="--position:50%"></i></div>
+          <div class="threshold-labels"><span>0</span><span class="threshold-point"><b>20</b> equilibrio</span><span>30</span></div>
+        </div>
+      </div>
+
+      <div class="chart-grid reveal">
+        <article class="chart-panel">
+          <div class="panel-heading"><div><span class="micro-label">Comparativo mensual</span><h3>Flujo neto por escenario</h3></div></div>
+          <div class="chart-wrap"><canvas id="financeChart"></canvas></div>
+        </article>
+        <aside class="conclusion-panel">
+          <span class="micro-label">Conclusión financiera</span>
+          <p>La inversión inicial de <strong>$50,000</strong> es un dato independiente. Los cálculos mensuales no la descuentan: hoy hay pérdidas operativas y se necesita crecer hasta 20 clientes.</p>
+          <div class="conclusion-state"><i></i><span>Estado actual: <b>déficit mensual</b></span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="tecnologia" class="section-panel technology-section" data-section="tecnologia">
+      <header class="section-header reveal">
+        <div><span class="section-index">02</span><p>Análisis técnico</p></div>
+        <h2>Recursos necesarios<br>para operar mejor.</h2>
+        <p class="section-summary">Estas cinco propuestas podrían mejorar el servicio. Aún no se presentan como tecnologías ya implementadas por la empresa.</p>
+      </header>
+
+      <div class="tech-grid">
+        <article class="tech-card reveal tilt" tabindex="0">
+          <div class="tech-visual ai-visual"><div class="brain-core"><i></i><i></i><i></i></div><span class="connection c1"></span><span class="connection c2"></span><span class="connection c3"></span></div>
+          <div class="tech-number">01</div>
+          <h3>Inteligencia artificial predictiva</h3>
+          <p class="tech-function"><b>Función:</b> Analiza ventas anteriores y patrones de consumo para anticipar la demanda.</p>
+          <p class="tech-benefit"><b>Beneficio:</b> Evita faltantes y exceso de mercancía.</p>
+        </article>
+
+        <article class="tech-card reveal tilt" tabindex="0">
+          <div class="tech-visual cloud-visual"><div class="cloud"><span></span></div><div class="server-stack"><i></i><i></i><i></i></div></div>
+          <div class="tech-number">02</div>
+          <h3>Respaldos automáticos en la nube</h3>
+          <p class="tech-function"><b>Función:</b> Almacena copias de seguridad para recuperarlas ante errores o pérdida de datos.</p>
+          <p class="tech-benefit"><b>Beneficio:</b> Protege los registros y permite restaurar la información.</p>
+        </article>
+
+        <article class="tech-card reveal tilt" tabindex="0">
+          <div class="tech-visual sensor-visual"><div class="shelf"><i></i><i></i><i></i></div><div class="sensor"><span></span></div></div>
+          <div class="tech-number">03</div>
+          <h3>Sensores inteligentes IoT</h3>
+          <p class="tech-function"><b>Función:</b> Monitorean productos o estantes y detectan cambios en las existencias.</p>
+          <p class="tech-benefit"><b>Beneficio:</b> Reducen revisiones manuales. Son una implementación avanzada y pueden incorporarse según presupuesto.</p>
+        </article>
+
+        <article class="tech-card reveal tilt" tabindex="0">
+          <div class="tech-visual analytics-visual"><div class="mini-chart"><i></i><i></i><i></i><i></i></div><div class="data-panel"><span></span><span></span><span></span></div></div>
+          <div class="tech-number">04</div>
+          <h3>Analítica en tiempo real</h3>
+          <p class="tech-function"><b>Función:</b> Muestra ventas, movimientos y productos más vendidos.</p>
+          <p class="tech-benefit"><b>Beneficio:</b> Facilita decisiones y permite conocer el estado del inventario.</p>
+        </article>
+
+        <article class="tech-card reveal tilt" tabindex="0">
+          <div class="tech-visual automation-visual"><div class="robot-arm"><i></i><i></i><b></b></div><div class="product-boxes"><span></span><span></span><span></span></div></div>
+          <div class="tech-number">05</div>
+          <h3>Automatización de inventario</h3>
+          <p class="tech-function"><b>Función:</b> Automatiza entradas, salidas y actualización de existencias.</p>
+          <p class="tech-benefit"><b>Beneficio:</b> Reduce tareas manuales y disminuye errores de registro.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="humanos" class="section-panel human-section" data-section="humanos">
+      <header class="section-header reveal">
+        <div><span class="section-index">03</span><p>Capital humano</p></div>
+        <h2>El equipo que hace<br>viable la operación.</h2>
+        <p class="section-summary">Tres perfiles profesionales cubren el desarrollo, la infraestructura y la relación con los comercios.</p>
+      </header>
+
+      <div class="team-grid">
+        <article class="profile-card reveal tilt">
+          <div class="profile-visual">
+            <div class="avatar-cube"><span>IA</span></div>
+            <div class="profile-scan"></div>
+          </div>
+          <span class="profile-code">PERFIL 01</span>
+          <h3>Ingeniero de software e inteligencia artificial</h3>
+          <ul>
+            <li>Desarrollar el sistema.</li>
+            <li>Programar sus funcionalidades.</li>
+            <li>Crear y mantener los modelos de IA.</li>
+            <li>Mejorar el funcionamiento de la plataforma.</li>
+          </ul>
+        </article>
+
+        <article class="profile-card reveal tilt">
+          <div class="profile-visual">
+            <div class="avatar-cube"><span>SYS</span></div>
+            <div class="profile-scan"></div>
+          </div>
+          <span class="profile-code">PERFIL 02</span>
+          <h3>Administrador de sistemas</h3>
+          <ul>
+            <li>Administrar servidores.</li>
+            <li>Gestionar bases de datos.</li>
+            <li>Supervisar la seguridad.</li>
+            <li>Mantener la infraestructura tecnológica.</li>
+          </ul>
+        </article>
+
+        <article class="profile-card reveal tilt">
+          <div class="profile-visual">
+            <div class="avatar-cube"><span>COM</span></div>
+            <div class="profile-scan"></div>
+          </div>
+          <span class="profile-code">PERFIL 03</span>
+          <h3>Especialista comercial y soporte técnico</h3>
+          <ul>
+            <li>Conseguir nuevos clientes.</li>
+            <li>Atender dudas y problemas.</li>
+            <li>Capacitar a los comercios.</li>
+            <li>Recibir comentarios para mejorar el servicio.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="riesgos" class="section-panel risks-section" data-section="riesgos">
+      <header class="section-header reveal">
+        <div><span class="section-index">04</span><p>Análisis de riesgos</p></div>
+        <h2>Anticipar las fallas<br>también es una estrategia.</h2>
+        <p class="section-summary">Se identifican el riesgo técnico, financiero y de mercado con una medida preventiva para cada uno.</p>
+      </header>
+
+      <div class="risk-grid">
+        <article class="risk-card reveal tilt">
+          <div class="risk-head"><span class="risk-icon">01</span><span>TÉCNICO</span></div>
+          <h3>Información incorrecta</h3>
+          <p><b>Descripción:</b> El sistema podría presentar fallas al calcular las existencias.</p>
+          <p class="risk-consequence"><b>Consecuencia:</b> El comercio tomaría decisiones equivocadas sobre sus productos.</p>
+          <div class="prevention"><span>Medida preventiva</span><p>Realizar pruebas, mantenimiento y respaldos periódicos.</p></div>
+        </article>
+
+        <article class="risk-card reveal tilt">
+          <div class="risk-head"><span class="risk-icon">02</span><span>FINANCIERO</span></div>
+          <h3>Ingresos insuficientes</h3>
+          <p><b>Descripción:</b> Los ingresos podrían no cubrir los gastos mensuales ni la operación.</p>
+          <p class="risk-consequence"><b>Consecuencia:</b> Continuarían las pérdidas y podrían agotarse los recursos.</p>
+          <div class="prevention"><span>Medida preventiva</span><p>Controlar gastos y aumentar clientes hasta alcanzar el punto de equilibrio.</p></div>
+        </article>
+
+        <article class="risk-card reveal tilt">
+          <div class="risk-head"><span class="risk-icon">03</span><span>DE MERCADO</span></div>
+          <h3>Resistencia del cliente</h3>
+          <p><b>Descripción:</b> Los comercios podrían preferir métodos tradicionales o no pagar una suscripción.</p>
+          <p class="risk-consequence"><b>Consecuencia:</b> Dificultades para conseguir y conservar clientes.</p>
+          <div class="prevention"><span>Medida preventiva</span><p>Ofrecer demostraciones, pruebas gratuitas y capacitación.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="decision" class="section-panel decision-section" data-section="decision">
+      <header class="section-header reveal">
+        <div><span class="section-index">05</span><p>Decisión profesional</p></div>
+        <h2>MODIFICAR EL PROYECTO.</h2>
+      </header>
+
+      <div class="decision-hero reveal">
+        <div class="decision-object" aria-hidden="true">
+          <div class="decision-orbit"></div>
+          <div class="decision-arrow"><span>↑</span></div>
+        </div>
+        <div class="decision-statement">
+          <span>Mi decisión</span>
+          <h3>NO CANCELAR.<br><em>REPLANTEAR Y MEJORAR.</em></h3>
+          <p>No recomiendo cancelarlo inmediatamente, pero tampoco seguir invirtiendo sin realizar cambios.</p>
+        </div>
+      </div>
+
+      <div class="decision-grid">
+        <article class="decision-column reveal">
+          <span class="micro-label">Justificación financiera</span>
+          <p>Actualmente hay 15 clientes. Esto genera <strong>$9,000 mensuales</strong> frente a gastos de <strong>$12,000</strong>. El resultado es un flujo neto negativo de <strong class="red">−$3,000 mensuales</strong>.</p>
+          <p>La empresa necesita <strong>20 clientes</strong> para alcanzar el punto de equilibrio.</p>
+        </article>
+        <article class="decision-column reveal">
+          <span class="micro-label">Justificación técnica</span>
+          <p>El sistema puede mejorar mediante IA predictiva, respaldos, sensores IoT, analítica y automatización. Estas tecnologías pueden aportar valor, siempre que su implementación sea viable económicamente.</p>
+        </article>
+      </div>
+
+      <div class="objective-track reveal">
+        <article class="objective active"><span>Meta 1</span><strong>20</strong><p>clientes</p><small>Cubrir gastos operativos</small></article>
+        <div class="track-line"><i></i></div>
+        <article class="objective"><span>Meta 2</span><strong>30</strong><p>clientes</p><small>Obtener $6,000 mensuales</small></article>
+      </div>
+
+      <article class="improvements reveal">
+        <span class="micro-label">Propuestas de mejora</span>
+        <ol>
+          <li><b>01</b><span>Reducir los gastos operativos.</span></li>
+          <li><b>02</b><span>Mejorar la publicidad.</span></li>
+          <li><b>03</b><span>Ofrecer pruebas gratuitas.</span></li>
+          <li><b>04</b><span>Conseguir nuevos clientes.</span></li>
+          <li><b>05</b><span>Mejorar el servicio según las necesidades.</span></li>
+        </ol>
+      </article>
+
+      <div class="decision-nav reveal">
+        <p>El proyecto tiene potencial, pero necesita modificar su estrategia comercial y controlar sus gastos. La mejor decisión es replantearlo, evaluar los resultados y continuar únicamente si mejora su situación financiera.</p>
+        <a href="#evidencias" class="primary-cta">VER EVIDENCIAS <span>↓</span></a>
+      </div>
+    </section>
+
+    <section id="evidencias" class="section-panel evidence-section" data-section="evidencias">
+      <header class="section-header reveal">
+        <div><span class="section-index">06</span><p>Evidencias y presentación</p></div>
+        <h2>Material de respaldo.</h2>
+        <p class="section-summary">Esta sección complementa la presentación. Los archivos solicitados deben entregarse por separado si la profesora lo indica.</p>
+      </header>
+
+      <div class="evidence-grid">
+        <article class="evidence-card reveal">
+          <div class="evidence-heading"><span>A</span><div><small>FOTOGRAFÍA</small><h3>Operaciones y respuestas</h3></div></div>
+          <div class="evidence-image" id="evidenceImage">
+            <img id="evidencePhoto" alt="Fotografía de operaciones y respuestas" hidden>
+            <div class="pending-media" hidden>
+              <span>!</span>
+              <p>Fotografía pendiente</p>
+              <small>Agregar assets/evidencia-operaciones.jpg</small>
+            </div>
           </div>
         </article>
-      </section>
 
-      <section id="forecast" class="section">
-        <div class="section-heading"><div><span class="label">MODELO PREDICTIVO</span><h2>Pronostico de demanda</h2></div></div>
-        <div class="forecast-grid">
-          <article class="insight-card forecast-card">
-            <div class="forecast-value"><span>Demanda estimada</span><strong>18,420</strong><small>unidades / 30 dias</small></div>
-            <div class="forecast-bar"><i style="width:74%"></i></div>
-            <div class="forecast-meta"><span>Confianza del modelo</span><strong>94%</strong></div>
-          </article>
-          <article class="insight-card alert-card">
-            <span class="alert-badge">Accion recomendada</span>
-            <h3>Reabastecer 4 productos</h3>
-            <p>Se anticipa una ruptura de stock en los proximos 12 dias.</p>
-            <button type="button" class="text-button" id="reviewButton">Revisar inventario →</button>
-          </article>
-        </div>
-      </section>
-
-      <section id="decisions" class="section">
-        <div class="section-heading"><div><span class="label">CENTRO DE DECISION</span><h2>Recomendaciones Z Y X</h2></div></div>
-        <div class="decision-layout">
-          <article class="insight-card audio-card">
-            <div class="audio-art">
-              <div class="pulse-ring"></div>
-              <div class="audio-monogram">ZYX</div>
-            </div>
-            <div class="audio-copy">
-              <span class="label">REPORTE DE AUDIO</span>
-              <h3>Decision inteligente</h3>
-              <p>Escucha el resumen ejecutivo generado por Z Y X.</p>
-            </div>
-            <audio id="decisionAudio" preload="metadata" src="./assets/decision.mp3"></audio>
-            <div class="player">
-              <button type="button" id="playButton" class="play-button" aria-label="Reproducir">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
-              </button>
-              <span class="time" id="currentTime">0:00</span>
+        <article class="evidence-card audio-evidence reveal">
+          <div class="evidence-heading"><span>B</span><div><small>AUDIO DE WHATSAPP</small><h3>Mi decisión profesional</h3></div></div>
+          <div class="audio-player">
+            <button type="button" id="playButton" aria-label="Reproducir audio">
+              <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="pause-icon" viewBox="0 0 24 24"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+            </button>
+            <div class="audio-controls">
+              <div class="audio-times"><span id="currentTime">0:00</span><span id="duration">0:00</span></div>
               <input type="range" id="progress" min="0" max="100" value="0" aria-label="Progreso del audio">
-              <span class="time" id="duration">0:00</span>
+              <div class="volume-control">
+                <span>VOL</span>
+                <input type="range" id="volume" min="0" max="1" step="0.05" value="1" aria-label="Volumen">
+              </div>
             </div>
-          </article>
-          <article class="insight-card profile-card">
-            <span class="label">PROYECTO ACADÉMICO</span>
-            <h3>Z Y X</h3>
-            <p><strong>Estudiante:</strong> Mario Mora Valdez</p>
-            <p><strong>Periodo:</strong> 7mo cuatrimestre</p>
-            <div class="tech-pills"><span>Inteligencia</span><span>Inventario</span><span>Datos</span></div>
-          </article>
-        </div>
-      </section>
-    </div>
+          </div>
+          <audio id="decisionAudio" preload="none"></audio>
+          <p class="audio-status" id="audioStatus">Archivo de audio pendiente: assets/decision.mp3</p>
+        </article>
+
+        <article class="student-card reveal">
+          <span class="micro-label">Datos del estudiante</span>
+          <h3>Mario Mora Valdez</h3>
+          <p>7mo cuatrimestre</p>
+          <div class="editable-group">Grupo: <input aria-label="Grupo académico" placeholder="Escribe aquí"></div>
+          <p class="evidence-note">Esta presentación complementa las evidencias, pero no sustituye el envío de archivos por WhatsApp si la profesora lo solicita por separado.</p>
+        </article>
+      </div>
+    </section>
   </main>
 
+  <div class="section-progress" id="sectionProgress" aria-hidden="true"><span></span></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <script src="./assets/chart.umd.js"></script>
   <script src="./script.js"></script>
 </body>

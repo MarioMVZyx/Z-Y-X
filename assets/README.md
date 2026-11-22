@@ -1,7 +1,8 @@
 # Assets
 
-Coloca aquí el archivo de audio `decision.mp3`.
+Recursos opcionales pendientes de la entrega:
 
-La página está preparada para cargar:
+- `assets/decision.mp3`: grabación de decisión profesional.
+- `assets/evidencia-operaciones.jpg`: fotografía de operaciones y respuestas.
 
-- `assets/decision.mp3`
+La página muestra estados pendientes hasta que se agreguen ambos archivos.
