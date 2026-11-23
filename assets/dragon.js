@@ -79,6 +79,14 @@ if (canvas && host) {
 
       dragon.traverse(child => {
         if (!child.isMesh) return;
+        if (
+          /^(Plane|Plane_Material)/i.test(child.name) ||
+          /plane/i.test(child.parent?.name || "") ||
+          /plane/i.test(child.name)
+        ) {
+          child.visible = false;
+          return;
+        }
         child.castShadow = true;
         child.receiveShadow = true;
         const materials = Array.isArray(child.material) ? child.material : [child.material];
@@ -156,13 +164,13 @@ if (canvas && host) {
 
   const clock = new THREE.Clock();
   const flightRoutes = [
-    { id: "inicio", x: 0.66, y: 0.20, scale: 1.0 },
-    { id: "finanzas", x: 0.77, y: 0.27, scale: 0.82 },
-    { id: "tecnologia", x: 0.10, y: 0.28, scale: 0.88 },
-    { id: "humanos", x: 0.68, y: 0.22, scale: 0.92 },
-    { id: "riesgos", x: 0.16, y: 0.34, scale: 0.86 },
-    { id: "decision", x: 0.69, y: 0.20, scale: 1.0 },
-    { id: "evidencias", x: 0.48, y: 0.18, scale: 0.78 }
+    { id: "inicio", x: 0.72, y: 0.23, scale: 0.88 },
+    { id: "finanzas", x: 0.82, y: 0.30, scale: 0.68 },
+    { id: "tecnologia", x: 0.20, y: 0.30, scale: 0.72 },
+    { id: "humanos", x: 0.82, y: 0.28, scale: 0.70 },
+    { id: "riesgos", x: 0.20, y: 0.34, scale: 0.72 },
+    { id: "decision", x: 0.82, y: 0.24, scale: 0.78 },
+    { id: "evidencias", x: 0.18, y: 0.22, scale: 0.64 }
   ];
   let activeRoute = flightRoutes[0];
   let flightX = window.innerWidth * activeRoute.x;
