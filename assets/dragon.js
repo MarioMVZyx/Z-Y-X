@@ -70,39 +70,51 @@ if (canvas && host) {
 
   const loader = new GLTFLoader();
   loader.load(
-    "./assets/models/black-dragon.glb",
+    "./assets/models/black-dragon.glb?v=clean-plane-v2",
     gltf => {
       dragon = gltf.scene;
       dragon.rotation.set(0.05, -0.18, 0);
+
+      const objectsToRemove = [];
+      dragon.traverse(child => {
+        const name = child.name || "";
+        if (/^(Plane|Plane_Material)/i.test(name) || /\bplane\b/i.test(name)) {
+          objectsToRemove.push(child);
+        }
+      });
+      objectsToRemove.forEach(child => {
+        child.visible = false;
+        child.removeFromParent();
+      });
+
       normalizeModel(dragon);
       scene.add(dragon);
 
       dragon.traverse(child => {
         if (!child.isMesh) return;
-        if (
-          /^(Plane|Plane_Material)/i.test(child.name) ||
-          /plane/i.test(child.parent?.name || "") ||
-          /plane/i.test(child.name)
-        ) {
-          child.visible = false;
-          return;
-        }
         child.castShadow = true;
         child.receiveShadow = true;
-        const materials = Array.isArray(child.material) ? child.material : [child.material];
-        materials.forEach(material => {
-          if (!material) return;
-          material.transparent = material.opacity < 1;
+        const sourceMaterials = Array.isArray(child.material) ? child.material : [child.material];
+        const coloredMaterials = sourceMaterials.map(source => {
+          if (!source) return source;
+          const material = source.clone();
+          material.transparent = false;
           material.needsUpdate = true;
-          if (material.color) material.color.multiplyScalar(0.78);
-          if ("emissive" in material) {
-            material.emissive = new THREE.Color(0x176f9a);
-            material.emissiveIntensity = 0.95;
+          if (/eye/i.test(child.name)) {
+            material.color = new THREE.Color(0x00d5ff);
+            material.emissive = new THREE.Color(0x00d5ff);
+            material.emissiveIntensity = 2.8;
+          } else {
+            material.color = new THREE.Color(0xff3b20);
+            material.emissive = new THREE.Color(0xff1600);
+            material.emissiveIntensity = 1.65;
           }
-          if ("metalness" in material) material.metalness = Math.max(material.metalness || 0, 0.28);
-          if ("roughness" in material) material.roughness = Math.min(material.roughness || 0.6, 0.48);
-          material.envMapIntensity = 0.75;
+          if ("metalness" in material) material.metalness = 0.22;
+          if ("roughness" in material) material.roughness = 0.34;
+          material.envMapIntensity = 1.15;
+          return material;
         });
+        child.material = Array.isArray(child.material) ? coloredMaterials : coloredMaterials[0];
       });
 
       mixer = new THREE.AnimationMixer(dragon);
