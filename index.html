@@ -143,7 +143,29 @@
 
       <div class="tech-grid">
         <article class="tech-card reveal tilt" tabindex="0">
-          <div class="tech-visual ai-visual"><div class="brain-core"><i></i><i></i><i></i></div><span class="connection c1"></span><span class="connection c2"></span><span class="connection c3"></span></div>
+          <div class="tech-visual ai-visual" aria-hidden="true">
+            <svg class="tech-svg" viewBox="0 0 240 180">
+              <defs>
+                <radialGradient id="aiGlow"><stop stop-color="#00D5FF" stop-opacity=".32"/><stop offset="1" stop-color="#318BFF" stop-opacity="0"/></radialGradient>
+                <linearGradient id="aiCore" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#87F1FF"/><stop offset=".48" stop-color="#00D5FF"/><stop offset="1" stop-color="#318BFF"/></linearGradient>
+              </defs>
+              <circle cx="120" cy="90" r="72" fill="url(#aiGlow)"/>
+              <g class="neural-ring">
+                <ellipse cx="120" cy="90" rx="57" ry="37" fill="none" stroke="#318BFF" stroke-opacity=".32" stroke-width="1"/>
+                <ellipse cx="120" cy="90" rx="57" ry="37" fill="none" stroke="#00D5FF" stroke-opacity=".65" stroke-width="1" stroke-dasharray="7 12"/>
+              </g>
+              <g fill="none" stroke="#00D5FF" stroke-width="1.2" stroke-opacity=".7">
+                <path d="M120 90L77 49M120 90L162 47M120 90L169 118M120 90L70 126M120 90L120 35"/>
+                <circle cx="77" cy="49" r="5"/><circle cx="162" cy="47" r="5"/><circle cx="169" cy="118" r="5"/><circle cx="70" cy="126" r="5"/><circle cx="120" cy="35" r="5"/>
+              </g>
+              <g class="ai-core">
+                <circle cx="120" cy="90" r="31" fill="#101A28" stroke="url(#aiCore)" stroke-width="3"/>
+                <circle cx="120" cy="90" r="20" fill="none" stroke="#7FEAFF" stroke-width="1" stroke-dasharray="4 5"/>
+                <path d="M120 69l18 10v22l-18 10-18-10V79z" fill="rgba(0,213,255,.10)" stroke="#D7FAFF" stroke-width="1"/>
+                <circle cx="120" cy="90" r="6" fill="url(#aiCore)"/>
+              </g>
+            </svg>
+          </div>
           <div class="tech-number">01</div>
           <h3>Inteligencia artificial predictiva</h3>
           <p class="tech-function"><b>Función:</b> Analiza ventas anteriores y patrones de consumo para anticipar la demanda.</p>
@@ -151,7 +173,29 @@
         </article>
 
         <article class="tech-card reveal tilt" tabindex="0">
-          <div class="tech-visual cloud-visual"><div class="cloud"><span></span></div><div class="server-stack"><i></i><i></i><i></i></div></div>
+          <div class="tech-visual cloud-visual" aria-hidden="true">
+            <svg class="tech-svg" viewBox="0 0 240 180">
+              <defs>
+                <linearGradient id="cloudFill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9DEFFF"/><stop offset=".55" stop-color="#318BFF"/><stop offset="1" stop-color="#1457A8"/></linearGradient>
+                <linearGradient id="serverFill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1F5D92"/><stop offset="1" stop-color="#0C1622"/></linearGradient>
+              </defs>
+              <g class="cloud-orbit" fill="none" stroke="#318BFF" stroke-opacity=".42">
+                <ellipse cx="120" cy="77" rx="82" ry="32" stroke-dasharray="5 8"/>
+                <ellipse cx="120" cy="77" rx="58" ry="20" stroke="#00D5FF" stroke-opacity=".34"/>
+              </g>
+              <path d="M76 102c-21 0-31-14-25-31 5-14 20-22 34-16 7-27 48-33 66-10 23-5 40 12 36 32 15 4 20 18 10 25H76z" fill="url(#cloudFill)" fill-opacity=".16" stroke="#7FEAFF" stroke-width="2"/>
+              <g transform="translate(96 43)" fill="#D7FAFF">
+                <circle cx="0" cy="0" r="3"/><circle cx="48" cy="5" r="3"/>
+              </g>
+              <g class="server-rack" transform="translate(78 104)">
+                <rect x="0" y="0" width="84" height="22" rx="3" fill="url(#serverFill)" stroke="#318BFF"/>
+                <rect x="0" y="28" width="84" height="22" rx="3" fill="url(#serverFill)" stroke="#318BFF"/>
+                <rect x="0" y="56" width="84" height="22" rx="3" fill="url(#serverFill)" stroke="#318BFF"/>
+                <g fill="#00D5FF"><circle cx="9" cy="11" r="2"/><circle cx="9" cy="39" r="2"/><circle cx="9" cy="67" r="2"/></g>
+                <g fill="#F4F7FA" opacity=".65"><rect x="18" y="9" width="54" height="3" rx="2"/><rect x="18" y="37" width="54" height="3" rx="2"/><rect x="18" y="65" width="54" height="3" rx="2"/></g>
+              </g>
+            </svg>
+          </div>
           <div class="tech-number">02</div>
           <h3>Respaldos automáticos en la nube</h3>
           <p class="tech-function"><b>Función:</b> Almacena copias de seguridad para recuperarlas ante errores o pérdida de datos.</p>
@@ -159,7 +203,27 @@
         </article>
 
         <article class="tech-card reveal tilt" tabindex="0">
-          <div class="tech-visual sensor-visual"><div class="shelf"><i></i><i></i><i></i></div><div class="sensor"><span></span></div></div>
+          <div class="tech-visual sensor-visual" aria-hidden="true">
+            <svg class="tech-svg" viewBox="0 0 240 180">
+              <defs><linearGradient id="sensorShelf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#318BFF"/><stop offset="1" stop-color="#00D5FF"/></linearGradient></defs>
+              <g class="smart-shelf">
+                <path d="M48 45h144v100H48z" fill="#101A28" stroke="#318BFF" stroke-opacity=".7"/>
+                <path d="M48 78h144M48 112h144M48 145h144" stroke="#318BFF" stroke-opacity=".42"/>
+                <g fill="#00D5FF" fill-opacity=".16" stroke="#00D5FF" stroke-opacity=".8">
+                  <rect x="64" y="57" width="34" height="15" rx="3"/><rect x="105" y="57" width="34" height="15" rx="3"/><rect x="146" y="57" width="34" height="15" rx="3"/>
+                  <rect x="64" y="90" width="34" height="15" rx="3"/><rect x="105" y="90" width="34" height="15" rx="3"/><rect x="146" y="90" width="34" height="15" rx="3"/>
+                </g>
+                <path d="M48 45l12-8h144l-12 8z" fill="#318BFF" fill-opacity=".18" stroke="#00D5FF" stroke-opacity=".5"/>
+              </g>
+              <g class="sensor-node">
+                <circle cx="174" cy="37" r="22" fill="#101A28" stroke="url(#sensorShelf)" stroke-width="2"/>
+                <circle cx="174" cy="37" r="8" fill="#00D5FF"/>
+                <circle cx="174" cy="37" r="14" fill="none" stroke="#00D5FF" stroke-opacity=".5" class="sensor-pulse"/>
+                <path d="M174 59v18" stroke="#318BFF" stroke-width="3"/>
+              </g>
+              <g fill="none" stroke="#00D5FF" stroke-opacity=".55" stroke-dasharray="4 6"><path d="M174 77l-55 23"/><path d="M174 77l-10 58"/></g>
+            </svg>
+          </div>
           <div class="tech-number">03</div>
           <h3>Sensores inteligentes IoT</h3>
           <p class="tech-function"><b>Función:</b> Monitorean productos o estantes y detectan cambios en las existencias.</p>
@@ -167,7 +231,19 @@
         </article>
 
         <article class="tech-card reveal tilt" tabindex="0">
-          <div class="tech-visual analytics-visual"><div class="mini-chart"><i></i><i></i><i></i><i></i></div><div class="data-panel"><span></span><span></span><span></span></div></div>
+          <div class="tech-visual analytics-visual" aria-hidden="true">
+            <svg class="tech-svg" viewBox="0 0 240 180">
+              <defs><linearGradient id="chartFill" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#318BFF" stop-opacity=".05"/><stop offset="1" stop-color="#00D5FF" stop-opacity=".7"/></linearGradient></defs>
+              <g class="analytics-grid" stroke="#318BFF" stroke-opacity=".16"><path d="M42 38v104h156M42 65h156M42 92h156M42 119h156"/></g>
+              <path d="M44 130l31-28 24 12 34-43 24 18 39-38v91H44z" fill="url(#chartFill)" stroke="#00D5FF" stroke-width="2"/>
+              <g fill="#F4F7FA" class="chart-points"><circle cx="75" cy="102" r="4"/><circle cx="99" cy="114" r="4"/><circle cx="133" cy="71" r="4"/><circle cx="157" cy="89" r="4"/><circle cx="196" cy="51" r="4"/></g>
+              <g transform="translate(45 24)">
+                <rect width="72" height="22" rx="11" fill="#101A28" stroke="#318BFF" stroke-opacity=".55"/>
+                <circle cx="13" cy="11" r="3" fill="#39D6A0"/><text x="22" y="15" fill="#F4F7FA" font-size="9" font-family="Segoe UI">EN VIVO</text>
+              </g>
+              <g class="data-float" fill="#00D5FF"><circle cx="28" cy="45" r="2"/><circle cx="210" cy="112" r="2"/><circle cx="191" cy="146" r="2"/></g>
+            </svg>
+          </div>
           <div class="tech-number">04</div>
           <h3>Analítica en tiempo real</h3>
           <p class="tech-function"><b>Función:</b> Muestra ventas, movimientos y productos más vendidos.</p>
@@ -175,7 +251,30 @@
         </article>
 
         <article class="tech-card reveal tilt" tabindex="0">
-          <div class="tech-visual automation-visual"><div class="robot-arm"><i></i><i></i><b></b></div><div class="product-boxes"><span></span><span></span><span></span></div></div>
+          <div class="tech-visual automation-visual" aria-hidden="true">
+            <svg class="tech-svg" viewBox="0 0 240 180">
+              <defs><linearGradient id="robotArm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9DEFFF"/><stop offset=".5" stop-color="#318BFF"/><stop offset="1" stop-color="#1457A8"/></linearGradient></defs>
+              <g class="robot-base" transform="translate(42 126)">
+                <ellipse cx="36" cy="29" rx="36" ry="10" fill="#318BFF" fill-opacity=".12" stroke="#318BFF" stroke-opacity=".6"/>
+                <rect x="15" y="4" width="42" height="24" rx="5" fill="#101A28" stroke="#00D5FF" stroke-opacity=".7"/>
+                <circle cx="36" cy="16" r="5" fill="#00D5FF"/>
+              </g>
+              <g class="robot-arm-svg" stroke="url(#robotArm)" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M78 142l42-48 48-9"/>
+                <circle cx="120" cy="94" r="13" fill="#101A28" stroke-width="3"/>
+                <circle cx="168" cy="85" r="10" fill="#101A28" stroke-width="3"/>
+              </g>
+              <g class="robot-grip" transform="translate(168 85)">
+                <path d="M0 0l18 9M0 0l18-9" stroke="#7FEAFF" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="0" cy="0" r="4" fill="#00D5FF"/>
+              </g>
+              <g class="inventory-boxes">
+                <g transform="translate(168 102)"><rect width="38" height="38" rx="4" fill="#101A28" stroke="#318BFF"/><path d="M19 0v38M0 19h38" stroke="#00D5FF" stroke-opacity=".45"/></g>
+                <g transform="translate(128 118)"><rect width="30" height="30" rx="4" fill="#101A28" stroke="#318BFF" stroke-opacity=".7"/></g>
+              </g>
+              <g fill="#00D5FF" fill-opacity=".7"><circle cx="197" cy="55" r="2"/><circle cx="211" cy="69" r="2"/><circle cx="188" cy="43" r="2"/></g>
+            </svg>
+          </div>
           <div class="tech-number">05</div>
           <h3>Automatización de inventario</h3>
           <p class="tech-function"><b>Función:</b> Automatiza entradas, salidas y actualización de existencias.</p>
