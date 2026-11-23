@@ -9,7 +9,7 @@ if (canvas && host) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-  camera.position.set(0, 0.05, 10.8);
+  camera.position.set(0, 0.05, 8.6);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -61,7 +61,7 @@ if (canvas && host) {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const largest = Math.max(size.x, size.y, size.z);
-    const scale = 3.15 / largest;
+    const scale = 3.90 / largest;
 
     root.position.sub(center);
     root.scale.setScalar(scale);
@@ -70,7 +70,7 @@ if (canvas && host) {
 
   const loader = new GLTFLoader();
   loader.load(
-    "./assets/models/black-dragon.glb?v=topmost-v3",
+    "./assets/models/black-dragon.glb?v=topmost-v4",
     gltf => {
       dragon = gltf.scene;
       dragon.rotation.set(0.05, -0.18, 0);
@@ -176,13 +176,13 @@ if (canvas && host) {
 
   const clock = new THREE.Clock();
   const flightRoutes = [
-    { id: "inicio", x: 0.78, y: 0.25, scale: 0.78 },
-    { id: "finanzas", x: 0.88, y: 0.31, scale: 0.58 },
-    { id: "tecnologia", x: 0.12, y: 0.31, scale: 0.62 },
-    { id: "humanos", x: 0.88, y: 0.29, scale: 0.60 },
-    { id: "riesgos", x: 0.12, y: 0.35, scale: 0.62 },
-    { id: "decision", x: 0.88, y: 0.25, scale: 0.68 },
-    { id: "evidencias", x: 0.12, y: 0.23, scale: 0.56 }
+    { id: "inicio", x: 0.82, y: 0.25, scale: 1.00 },
+    { id: "finanzas", x: 0.90, y: 0.31, scale: 0.82 },
+    { id: "tecnologia", x: 0.10, y: 0.31, scale: 0.84 },
+    { id: "humanos", x: 0.90, y: 0.29, scale: 0.82 },
+    { id: "riesgos", x: 0.10, y: 0.35, scale: 0.84 },
+    { id: "decision", x: 0.90, y: 0.25, scale: 0.88 },
+    { id: "evidencias", x: 0.10, y: 0.23, scale: 0.78 }
   ];
   let activeRoute = flightRoutes[0];
   let flightX = window.innerWidth * activeRoute.x;
@@ -219,7 +219,7 @@ if (canvas && host) {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
       const mobile = viewportWidth <= 760;
-      const canvasWidth = mobile ? 230 : Math.min(viewportWidth * 0.31, 360);
+      const canvasWidth = mobile ? 230 : Math.min(viewportWidth * 0.34, 420);
       const canvasHeight = canvasWidth;
       canvas.style.width = `${canvasWidth}px`;
       canvas.style.height = `${canvasHeight}px`;
