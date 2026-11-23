@@ -61,7 +61,7 @@ if (canvas && host) {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const largest = Math.max(size.x, size.y, size.z);
-    const scale = 3.45 / largest;
+    const scale = 2.45 / largest;
 
     root.position.sub(center);
     root.scale.setScalar(scale);
@@ -181,13 +181,13 @@ if (canvas && host) {
 
   const clock = new THREE.Clock();
   const flightRoutes = [
-    { id: "inicio", x: 0.86, y: 0.25, scale: 0.92 },
-    { id: "finanzas", x: 0.91, y: 0.31, scale: 0.76 },
-    { id: "tecnologia", x: 0.09, y: 0.31, scale: 0.78 },
-    { id: "humanos", x: 0.91, y: 0.29, scale: 0.76 },
-    { id: "riesgos", x: 0.09, y: 0.35, scale: 0.78 },
-    { id: "decision", x: 0.91, y: 0.25, scale: 0.82 },
-    { id: "evidencias", x: 0.09, y: 0.23, scale: 0.72 }
+    { id: "inicio", x: 0.84, y: 0.25, scale: 0.72 },
+    { id: "finanzas", x: 0.88, y: 0.31, scale: 0.58 },
+    { id: "tecnologia", x: 0.12, y: 0.31, scale: 0.60 },
+    { id: "humanos", x: 0.88, y: 0.29, scale: 0.58 },
+    { id: "riesgos", x: 0.12, y: 0.35, scale: 0.60 },
+    { id: "decision", x: 0.88, y: 0.25, scale: 0.62 },
+    { id: "evidencias", x: 0.12, y: 0.23, scale: 0.54 }
   ];
   let activeRoute = flightRoutes[0];
   let flightX = window.innerWidth * activeRoute.x;
@@ -224,7 +224,7 @@ if (canvas && host) {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
       const mobile = viewportWidth <= 760;
-      const canvasWidth = mobile ? 230 : Math.min(viewportWidth * 0.36, 480);
+      const canvasWidth = mobile ? 210 : Math.min(viewportWidth * 0.24, 300);
       const canvasHeight = canvasWidth;
       canvas.style.width = `${canvasWidth}px`;
       canvas.style.height = `${canvasHeight}px`;
@@ -234,8 +234,8 @@ if (canvas && host) {
         ? activeRoute.x * viewportWidth - canvasWidth * 0.52
         : activeRoute.x * viewportWidth - canvasWidth * 0.5;
       const routeY = activeRoute.y * viewportHeight - canvasHeight * (mobile ? 0.46 : 0.42);
-      const flightRadiusX = mobile ? 32 : 68;
-      const flightRadiusY = mobile ? 24 : 38;
+      const flightRadiusX = mobile ? 18 : 34;
+      const flightRadiusY = mobile ? 14 : 20;
       const elapsed = clock.elapsedTime;
       const flutterX = Math.sin(elapsed * (wingBoost ? 0.92 : 0.42)) * flightRadiusX;
       const flutterY = Math.cos(elapsed * (wingBoost ? 1.18 : 0.72)) * flightRadiusY;
