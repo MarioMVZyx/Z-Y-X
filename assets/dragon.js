@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 const canvas = document.getElementById("dragonCanvas");
-const host = document.querySelector(".cover-object");
+const host = document.body;
 const loading = document.getElementById("dragonLoading");
 
 if (canvas && host) {
@@ -37,6 +37,7 @@ if (canvas && host) {
   scene.add(fillLight);
 
   let mixer = null;
+  let activeAction = null;
   let dragon = null;
   let targetRotationX = 0;
   let targetRotationY = 0;
@@ -101,7 +102,10 @@ if (canvas && host) {
         const idle = gltf.animations.find(animation =>
           /idle|fly|breath|wait/i.test(animation.name)
         ) || gltf.animations[0];
-        mixer.clipAction(idle).reset().play();
+        activeAction = mixer.clipAction(idle);
+        activeAction.reset();
+        activeAction.setEffectiveTimeScale(reducedMotion ? 0 : 1.45);
+        activeAction.play();
       }
 
       loading?.classList.add("loaded");
@@ -114,7 +118,7 @@ if (canvas && host) {
     }
   );
 
-  host.addEventListener("pointermove", event => {
+  window.addEventListener("pointermove", event => {
     if (dragging) {
       const dx = event.clientX - dragStartX;
       const dy = event.clientY - dragStartY;
@@ -129,7 +133,7 @@ if (canvas && host) {
     }
   });
 
-  host.addEventListener("pointerleave", () => {
+  window.addEventListener("pointerleave", () => {
     if (!dragging) {
       targetRotationX = 0;
       targetRotationY = 0;
@@ -152,16 +156,32 @@ if (canvas && host) {
 
   const clock = new THREE.Clock();
   const flightRoutes = [
-    { id: "inicio", x: -0.04, y: 0.02 },
-    { id: "finanzas", x: -0.58, y: 0.12 },
-    { id: "tecnologia", x: -0.10, y: 0.04 },
-    { id: "humanos", x: -0.62, y: -0.02 },
-    { id: "riesgos", x: -0.08, y: 0.10 },
-    { id: "decision", x: -0.38, y: -0.08 },
-    { id: "evidencias", x: -0.12, y: 0.02 }
+    { id: "inicio", x: 0.66, y: 0.20, scale: 1.0 },
+    { id: "finanzas", x: 0.77, y: 0.27, scale: 0.82 },
+    { id: "tecnologia", x: 0.10, y: 0.28, scale: 0.88 },
+    { id: "humanos", x: 0.68, y: 0.22, scale: 0.92 },
+    { id: "riesgos", x: 0.16, y: 0.34, scale: 0.86 },
+    { id: "decision", x: 0.69, y: 0.20, scale: 1.0 },
+    { id: "evidencias", x: 0.48, y: 0.18, scale: 0.78 }
   ];
-  let flightX = 0;
-  let flightY = 0;
+  let activeRoute = flightRoutes[0];
+  let flightX = window.innerWidth * activeRoute.x;
+  let flightY = window.innerHeight * activeRoute.y;
+  let wingBoost = 0;
+  let sectionChangeTime = 0;
+
+  function setRoute(id) {
+    const route = flightRoutes.find(item => item.id === id);
+    if (!route) return;
+    activeRoute = route;
+    wingBoost = 1;
+    sectionChangeTime = clock.elapsedTime;
+  }
+
+  window.addEventListener("zyx-section-change", event => setRoute(event.detail.id));
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => setRoute(link.dataset.target));
+  });
 
   function animate() {
     const delta = Math.min(clock.getDelta(), 0.05);
@@ -178,30 +198,33 @@ if (canvas && host) {
     if (!reducedMotion) {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
-      let nearest = flightRoutes[0];
-      let nearestDistance = Number.POSITIVE_INFINITY;
-
-      flightRoutes.forEach(route => {
-        const section = document.getElementById(route.id);
-        if (!section) return;
-        const rect = section.getBoundingClientRect();
-        const distance = Math.abs(rect.top + rect.height * 0.5 - viewportHeight * 0.5);
-        if (distance < nearestDistance) {
-          nearestDistance = distance;
-          nearest = route;
-        }
-      });
-
       const mobile = viewportWidth <= 760;
-      const scale = mobile ? 0.46 : 1;
-      const targetX = nearest.x * viewportWidth * scale;
-      const targetY = nearest.y * viewportHeight;
-      flightX += (targetX - flightX) * 0.018;
-      flightY += (targetY - flightY) * 0.018;
+      const canvasWidth = mobile ? 230 : Math.min(viewportWidth * 0.34, 410);
+      const canvasHeight = canvasWidth;
+      canvas.style.width = `${canvasWidth}px`;
+      canvas.style.height = `${canvasHeight}px`;
 
-      const flutterX = Math.sin(clock.elapsedTime * 0.46) * (mobile ? 8 : 22);
-      const flutterY = Math.cos(clock.elapsedTime * 0.72) * (mobile ? 10 : 30);
-      canvas.style.transform = `translate3d(${flightX + flutterX}px, ${flightY + flutterY}px, 0)`;
+      const routeScale = activeRoute.scale;
+      const routeX = mobile
+        ? activeRoute.x * viewportWidth - canvasWidth * 0.52
+        : activeRoute.x * viewportWidth - canvasWidth * 0.5;
+      const routeY = activeRoute.y * viewportHeight - canvasHeight * (mobile ? 0.46 : 0.42);
+      const flightRadiusX = mobile ? 32 : 68;
+      const flightRadiusY = mobile ? 24 : 38;
+      const elapsed = clock.elapsedTime;
+      const flutterX = Math.sin(elapsed * (wingBoost ? 0.92 : 0.42)) * flightRadiusX;
+      const flutterY = Math.cos(elapsed * (wingBoost ? 1.18 : 0.72)) * flightRadiusY;
+
+      flightX += (routeX - flightX) * 0.025;
+      flightY += (routeY - flightY) * 0.025;
+      canvas.style.left = `${flightX + flutterX}px`;
+      canvas.style.top = `${flightY + flutterY}px`;
+      canvas.style.transform = `scale(${routeScale}) rotateZ(${Math.sin(elapsed * 0.55) * 2}deg)`;
+
+      if (elapsed - sectionChangeTime > 3.5) wingBoost = 0;
+
+      if (activeAction && wingBoost) activeAction.setEffectiveTimeScale(2.25);
+      else if (activeAction) activeAction.setEffectiveTimeScale(reducedMotion ? 0 : 1.45);
     }
 
     renderer.render(scene, camera);

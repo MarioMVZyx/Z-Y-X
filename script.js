@@ -65,6 +65,7 @@ const sidebar = document.getElementById("sidebar");
 
 function activateNavigation(id) {
   navLinks.forEach(link => link.classList.toggle("active", link.dataset.target === id));
+  window.dispatchEvent(new CustomEvent("zyx-section-change", { detail: { id } }));
 }
 
 navLinks.forEach(link => {
