@@ -70,7 +70,7 @@ if (canvas && host) {
 
   const loader = new GLTFLoader();
   loader.load(
-    "./assets/models/black-dragon.glb?v=clean-plane-v2",
+    "./assets/models/black-dragon.glb?v=topmost-v3",
     gltf => {
       dragon = gltf.scene;
       dragon.rotation.set(0.05, -0.18, 0);

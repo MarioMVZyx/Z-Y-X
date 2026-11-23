@@ -28,7 +28,7 @@ button, input { font: inherit; }
 a { color: inherit; }
 
 .noise {
-  position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: .025;
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
 }
 
@@ -88,13 +88,13 @@ a { color: inherit; }
 .cover-object { position: relative; z-index: 4; width: min(38vw, 470px); aspect-ratio: 1; perspective: 900px; margin: auto; }
 #dragonCanvas {
   position: fixed;
-  z-index: 80;
+  z-index: 2147483647;
   left: 62%;
   top: 18%;
   width: min(34vw, 410px);
   height: min(34vw, 410px);
   cursor: grab;
-  pointer-events: auto;
+  pointer-events: none;
   opacity: 1;
   overflow: visible;
   pointer-events: none;
@@ -103,7 +103,7 @@ a { color: inherit; }
   transition: opacity .35s ease, filter .35s ease;
 }
 #dragonCanvas:active { cursor:grabbing; }
-.dragon-loading { position:absolute; z-index:8; left:50%; bottom:9%; display:flex; align-items:center; gap:8px; transform:translateX(-50%); color:var(--muted); font-size:8px; letter-spacing:1.4px; text-transform:uppercase; transition:.35s ease; }
+.dragon-loading { position:fixed; z-index:2147483646; left:50%; bottom:9%; display:flex; align-items:center; gap:8px; transform:translateX(-50%); color:var(--muted); font-size:8px; letter-spacing:1.4px; text-transform:uppercase; transition:.35s ease; }
 .dragon-loading span { width:6px; height:6px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan); animation:loadingPulse 1s ease-in-out infinite; }
 .dragon-loading.loaded { opacity:0; pointer-events:none; }
 @keyframes loadingPulse { 50% { opacity:.25; transform:scale(.7); } }
