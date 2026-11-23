@@ -84,7 +84,13 @@ a { color: inherit; }
 .primary-cta span { color: var(--cyan); font-size: 16px; }
 .primary-cta:hover { border-color: var(--cyan); background: rgba(0,213,255,.12); box-shadow: 0 12px 34px rgba(0,213,255,.08); transform: translateY(-2px); }
 
-.cover-object { position: relative; width: min(38vw, 470px); aspect-ratio: 1; perspective: 900px; margin: auto; }
+.cover-object { position: relative; z-index: 4; width: min(38vw, 470px); aspect-ratio: 1; perspective: 900px; margin: auto; }
+#dragonCanvas { position:absolute; inset:0; width:100%; height:100%; z-index:3; cursor:grab; filter:drop-shadow(0 28px 35px rgba(0,213,255,.12)); }
+#dragonCanvas:active { cursor:grabbing; }
+.dragon-loading { position:absolute; z-index:8; left:50%; bottom:9%; display:flex; align-items:center; gap:8px; transform:translateX(-50%); color:var(--muted); font-size:8px; letter-spacing:1.4px; text-transform:uppercase; transition:.35s ease; }
+.dragon-loading span { width:6px; height:6px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan); animation:loadingPulse 1s ease-in-out infinite; }
+.dragon-loading.loaded { opacity:0; pointer-events:none; }
+@keyframes loadingPulse { 50% { opacity:.25; transform:scale(.7); } }
 .orbital { position: absolute; border: 1px solid rgba(49,139,255,.24); border-radius: 50%; transform-style: preserve-3d; }
 .orbital-a { inset: 8%; animation: orbitA 16s linear infinite; } .orbital-b { inset: 18%; transform: rotateX(68deg) rotateZ(18deg); animation: orbitB 12s linear infinite reverse; } .orbital-c { inset: 29%; border-color: rgba(0,213,255,.32); animation: orbitA 9s linear infinite reverse; }
 .orbital::before { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; left: 12%; top: 22%; background: var(--cyan); box-shadow: 0 0 16px var(--cyan); }

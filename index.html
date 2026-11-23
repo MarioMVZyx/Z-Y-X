@@ -59,14 +59,11 @@
         </div>
 
         <div class="cover-object reveal" aria-label="Objeto tecnológico Z Y X">
+          <canvas id="dragonCanvas" aria-label="Dragón 3D animado"></canvas>
+          <div class="dragon-loading" id="dragonLoading"><span></span>Cargando modelo</div>
           <div class="orbital orbital-a"></div>
           <div class="orbital orbital-b"></div>
           <div class="orbital orbital-c"></div>
-          <div class="core-3d">
-            <div class="core-layer core-back"></div>
-            <div class="core-layer core-mid"></div>
-            <div class="core-layer core-front"><b>ZYX</b></div>
-          </div>
           <div class="data-node node-a"></div>
           <div class="data-node node-b"></div>
           <div class="data-node node-c"></div>
@@ -387,7 +384,16 @@
   <div class="section-progress" id="sectionProgress" aria-hidden="true"><span></span></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/vendor/three.module.js",
+        "three/addons/": "./assets/vendor/"
+      }
+    }
+  </script>
   <script src="./assets/chart.umd.js"></script>
   <script src="./script.js"></script>
+  <script type="module" src="./assets/dragon.js"></script>
 </body>
 </html>
