@@ -88,7 +88,7 @@ a { color: inherit; }
 .cover-object { position: relative; z-index: 4; width: min(38vw, 470px); aspect-ratio: 1; perspective: 900px; margin: auto; }
 #dragonCanvas {
   position: fixed;
-  z-index: 22;
+  z-index: 80;
   left: 62%;
   top: 18%;
   width: min(34vw, 410px);
@@ -96,6 +96,8 @@ a { color: inherit; }
   cursor: grab;
   pointer-events: auto;
   opacity: 1;
+  overflow: visible;
+  pointer-events: none;
   filter: drop-shadow(0 34px 42px rgba(0,213,255,.28)) contrast(1.18);
   will-change: left, top, transform;
   transition: opacity .35s ease, filter .35s ease;

@@ -9,7 +9,7 @@ if (canvas && host) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-  camera.position.set(0, 0.05, 8.8);
+  camera.position.set(0, 0.05, 10.8);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -61,7 +61,7 @@ if (canvas && host) {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const largest = Math.max(size.x, size.y, size.z);
-    const scale = 3.55 / largest;
+    const scale = 3.15 / largest;
 
     root.position.sub(center);
     root.scale.setScalar(scale);
