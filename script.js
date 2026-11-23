@@ -136,8 +136,8 @@ const audioStatus = document.getElementById("audioStatus");
 
 const evidencePhoto = document.getElementById("evidencePhoto");
 const pendingMedia = document.querySelector(".pending-media");
-evidencePhoto.hidden = true;
-pendingMedia.hidden = false;
+evidencePhoto.hidden = false;
+pendingMedia.hidden = true;
 
 function formatTime(seconds) {
   if (!Number.isFinite(seconds)) return "0:00";

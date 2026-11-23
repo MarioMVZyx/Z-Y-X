@@ -122,7 +122,11 @@ if (canvas && host) {
         const idle = gltf.animations.find(animation =>
           /idle|fly|breath|wait/i.test(animation.name)
         ) || gltf.animations[0];
-        activeAction = mixer.clipAction(idle);
+        const filteredClip = idle.clone();
+        filteredClip.tracks = filteredClip.tracks.filter(track =>
+          !/(^|[._-])(Plane)([._-]|$)/i.test(track.name)
+        );
+        activeAction = mixer.clipAction(filteredClip);
         activeAction.reset();
         activeAction.setEffectiveTimeScale(reducedMotion ? 0 : 1.45);
         activeAction.play();

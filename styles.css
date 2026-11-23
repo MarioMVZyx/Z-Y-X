@@ -94,10 +94,9 @@ a { color: inherit; }
   width: min(34vw, 410px);
   height: min(34vw, 410px);
   cursor: grab;
-  pointer-events: none;
+  pointer-events: auto;
   opacity: 1;
   overflow: visible;
-  pointer-events: none;
   filter: drop-shadow(0 34px 42px rgba(0,213,255,.28)) contrast(1.18);
   will-change: left, top, transform;
   transition: opacity .35s ease, filter .35s ease;
