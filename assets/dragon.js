@@ -47,8 +47,9 @@ if (canvas && host) {
   let dragRotationY = 0;
 
   function resize() {
-    const width = host.clientWidth;
-    const height = host.clientHeight;
+    const rect = canvas.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -85,7 +86,13 @@ if (canvas && host) {
           material.transparent = material.opacity < 1;
           material.needsUpdate = true;
           if (material.color) material.color.multiplyScalar(0.78);
-          material.envMapIntensity = 0.4;
+          if ("emissive" in material) {
+            material.emissive = new THREE.Color(0x176f9a);
+            material.emissiveIntensity = 0.95;
+          }
+          if ("metalness" in material) material.metalness = Math.max(material.metalness || 0, 0.28);
+          if ("roughness" in material) material.roughness = Math.min(material.roughness || 0.6, 0.48);
+          material.envMapIntensity = 0.75;
         });
       });
 
@@ -144,6 +151,18 @@ if (canvas && host) {
   });
 
   const clock = new THREE.Clock();
+  const flightRoutes = [
+    { id: "inicio", x: -0.04, y: 0.02 },
+    { id: "finanzas", x: -0.58, y: 0.12 },
+    { id: "tecnologia", x: -0.10, y: 0.04 },
+    { id: "humanos", x: -0.62, y: -0.02 },
+    { id: "riesgos", x: -0.08, y: 0.10 },
+    { id: "decision", x: -0.38, y: -0.08 },
+    { id: "evidencias", x: -0.12, y: 0.02 }
+  ];
+  let flightX = 0;
+  let flightY = 0;
+
   function animate() {
     const delta = Math.min(clock.getDelta(), 0.05);
     mixer?.update(reducedMotion ? 0 : delta);
@@ -154,6 +173,35 @@ if (canvas && host) {
       if (!reducedMotion && !dragging) {
         dragon.position.y = -0.12 + Math.sin(clock.elapsedTime * 1.15) * 0.08;
       }
+    }
+
+    if (!reducedMotion) {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      let nearest = flightRoutes[0];
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      flightRoutes.forEach(route => {
+        const section = document.getElementById(route.id);
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top + rect.height * 0.5 - viewportHeight * 0.5);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearest = route;
+        }
+      });
+
+      const mobile = viewportWidth <= 760;
+      const scale = mobile ? 0.46 : 1;
+      const targetX = nearest.x * viewportWidth * scale;
+      const targetY = nearest.y * viewportHeight;
+      flightX += (targetX - flightX) * 0.018;
+      flightY += (targetY - flightY) * 0.018;
+
+      const flutterX = Math.sin(clock.elapsedTime * 0.46) * (mobile ? 8 : 22);
+      const flutterY = Math.cos(clock.elapsedTime * 0.72) * (mobile ? 10 : 30);
+      canvas.style.transform = `translate3d(${flightX + flutterX}px, ${flightY + flutterY}px, 0)`;
     }
 
     renderer.render(scene, camera);
