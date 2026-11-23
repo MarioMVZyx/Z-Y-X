@@ -9,7 +9,7 @@ if (canvas && host) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-  camera.position.set(0, 0.15, 7.2);
+  camera.position.set(0, 0.05, 8.8);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -61,7 +61,7 @@ if (canvas && host) {
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
     const largest = Math.max(size.x, size.y, size.z);
-    const scale = 4.35 / largest;
+    const scale = 3.55 / largest;
 
     root.position.sub(center);
     root.scale.setScalar(scale);
@@ -176,13 +176,13 @@ if (canvas && host) {
 
   const clock = new THREE.Clock();
   const flightRoutes = [
-    { id: "inicio", x: 0.72, y: 0.23, scale: 0.88 },
-    { id: "finanzas", x: 0.82, y: 0.30, scale: 0.68 },
-    { id: "tecnologia", x: 0.20, y: 0.30, scale: 0.72 },
-    { id: "humanos", x: 0.82, y: 0.28, scale: 0.70 },
-    { id: "riesgos", x: 0.20, y: 0.34, scale: 0.72 },
-    { id: "decision", x: 0.82, y: 0.24, scale: 0.78 },
-    { id: "evidencias", x: 0.18, y: 0.22, scale: 0.64 }
+    { id: "inicio", x: 0.78, y: 0.25, scale: 0.78 },
+    { id: "finanzas", x: 0.88, y: 0.31, scale: 0.58 },
+    { id: "tecnologia", x: 0.12, y: 0.31, scale: 0.62 },
+    { id: "humanos", x: 0.88, y: 0.29, scale: 0.60 },
+    { id: "riesgos", x: 0.12, y: 0.35, scale: 0.62 },
+    { id: "decision", x: 0.88, y: 0.25, scale: 0.68 },
+    { id: "evidencias", x: 0.12, y: 0.23, scale: 0.56 }
   ];
   let activeRoute = flightRoutes[0];
   let flightX = window.innerWidth * activeRoute.x;
@@ -219,7 +219,7 @@ if (canvas && host) {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
       const mobile = viewportWidth <= 760;
-      const canvasWidth = mobile ? 230 : Math.min(viewportWidth * 0.34, 410);
+      const canvasWidth = mobile ? 230 : Math.min(viewportWidth * 0.31, 360);
       const canvasHeight = canvasWidth;
       canvas.style.width = `${canvasWidth}px`;
       canvas.style.height = `${canvasHeight}px`;
